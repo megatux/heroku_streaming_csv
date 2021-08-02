@@ -2,6 +2,8 @@ class ExporterController < ApplicationController
   include ActionController::Live
 
   def index
+    headers['Last-Modified'] = Time.now.httpdate
+
     opts = {
       filename: "data_#{Time.zone.now.to_i}.csv",
       disposition: 'attachment',
