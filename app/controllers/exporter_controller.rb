@@ -2,14 +2,20 @@ class ExporterController < ApplicationController
   include Streameable
 
   def index
-    send_stream(attachment_opts) do |stream|
-      stream.write "email_address,updated_at\n"
+    respond_to do |format|
+      format.html # index.html
+      format.js   # index.js
+      format.csv do
+        send_stream(attachment_opts) do |stream|
+          stream.write "email_address,updated_at\n"
 
-      50.times.each do |i|
-        line = "pepe_#{i}@acme.com,#{Time.zone.now}\n"
-        stream.write line
-        puts line
-        sleep 1  # force slow response
+          50.times.each do |i|
+            line = "pepe_#{i}@acme.com,#{Time.zone.now}\n"
+            stream.write line
+            puts line
+            sleep 1  # force slow response
+          end
+        end
       end
     end
   end
