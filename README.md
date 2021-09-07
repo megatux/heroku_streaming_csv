@@ -1,24 +1,17 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This small app demostrates the use of `ActionController::Live` Rails controller concern to slowly generate a CSV file without triggering the Heroku's timeout limits of 30'' responses.
 
-Things you may want to cover:
+### Notes
 
-* Ruby version
+* Ruby version: should be ok with 2.x
 
-* System dependencies
+* Tested with rails 6.x and 7 edge
 
-* Configuration
+* No Database required
 
-* Database creation
+### Usage
 
-* Database initialization
+Use the browser and follow the link to start the CSV generation that takes more than 30'' to finish or use a CLI tool like curl to see line by line the generated output:
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+`curl -i http://localhost:3000/exporter.csv`
