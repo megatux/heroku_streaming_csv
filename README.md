@@ -15,3 +15,6 @@ This small app demostrates the use of `ActionController::Live` Rails controller 
 Use the browser and follow the link to start the CSV generation that takes more than 30'' to finish or use a CLI tool like curl to see line by line the generated output:
 
 `curl -i http://localhost:3000/exporter.csv`
+
+Ouptut: ![app logs & curl output](https://i.ibb.co/4t4wWZ0/streaming-csv.gif)
+
